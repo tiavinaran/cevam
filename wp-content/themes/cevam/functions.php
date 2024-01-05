@@ -41,6 +41,12 @@ function footer_deregister_scripts()
 }
 add_action('wp_footer', 'footer_deregister_scripts');
 
+function initTheme()
+{
+    register_nav_menu('main-menu', 'Menu principal');
+}
+add_action('init', 'initTheme');
+
 function get_attachment_url_by_slug($slug)
 {
     $args = [

@@ -30,4 +30,43 @@
             </div>
         </div>
     </section>
-    <header id="main-header"></header>
+    <header id="main-header">
+        <section id="menu-logo">
+            <a href="/">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg" alt="Logo" title="Logo" />
+            </a>
+        </section>
+        <?php
+        wp_nav_menu([
+            'theme_location' => 'main-menu',
+            'menu_id' => 'horizontal-menu',
+            'container' => ''
+        ]);
+        ?>
+        <section id="horizontal-language-switcher" class="language-switcher">
+            <?php pll_the_languages(['dropdown' => 1, 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
+        </section>
+        <section id="vertical-menu-section">
+            <section id="toggle-menu-container">
+                <span id="toggle-menu-title">Menu</span>
+                <div id="toggle-menu" class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+            </section>
+            <section id="menu-dim"></section>
+            <section id="vertical-menu-container">
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'main-menu',
+                    'menu_id' => 'vertical-menu',
+                    'container' => ''
+                ]);
+                ?>
+                <section id="vertical-language-switcher" class="language-switcher">
+                    <?php pll_the_languages(['dropdown' => 1, 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
+                </section>
+            </section>
+        </section>
+    </header>
