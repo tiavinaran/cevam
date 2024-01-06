@@ -234,6 +234,10 @@ body.sticky #main-header {
     background: white;
 }
 
+body.sticky.is-dark #main-header {
+    background: #121212;
+}
+
 #menu-logo a {
     display: flex;
     align-items: center;

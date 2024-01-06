@@ -21,6 +21,12 @@ body:before {
     z-index: -1;
 }
 
+body.open-menu #current-song svg, body.open-menu #current-song #current-song-play {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 h1 {
     display: none;
 }
