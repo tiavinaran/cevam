@@ -26,6 +26,13 @@ function import_scripts()
     wp_dequeue_style('wc-block-style');
 
     $template = basename(get_page_template());
+
+    if ($template === 'radio.php') {
+        wp_enqueue_style('radio-style', get_template_directory_uri() . '/assets/css/radio.css', array(), '1.0');
+
+        wp_register_script('radio-script', get_template_directory_uri() . '/assets/js/radio.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('radio-script');
+    }
 }
 add_action('wp_enqueue_scripts', 'import_scripts', PHP_INT_MAX);
 

@@ -19,7 +19,12 @@
     <?php wp_head(); ?>
 </head>
 
-<body class="loading">
+<?php
+    $template = basename(get_page_template());
+    $isDarkPage = $template === 'radio.php';
+?>
+
+<body class="loading<?php echo $isDarkPage ? ' is-dark' : ''; ?>"<?php echo isset($_SESSION['page_background']) && $_SESSION['page_background'] != '' ? ' style="--image-background: url(' . $_SESSION['page_background'] . ');"' : ''; ?>>
     <section id="page-loading">
         <div>
             <div class="lds-ring">
@@ -33,7 +38,7 @@
     <header id="main-header">
         <section id="menu-logo">
             <a href="/">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-dark.svg" alt="Logo" title="Logo" />
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/logo-' . ($isDarkPage ? 'light' : 'dark') . '.svg'; ?>" alt="Logo" title="Logo" />
             </a>
         </section>
         <?php
