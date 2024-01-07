@@ -1,3 +1,9 @@
+<?php
+    if (isset($_GET['is_live'])) {
+        echo is_live() ? 'YES' : 'NO';
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>

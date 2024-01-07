@@ -265,6 +265,15 @@ body.sticky.is-dark #main-header {
     text-decoration: none;
 }
 
+body.is-live .menu-item a[href*="/live"]::after {
+    content: "";
+    margin-left: 0.25rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 100%;
+    background: red;
+}
+
 #horizontal-menu a {
     min-height: 100%;
     padding: 1.5rem 1rem;

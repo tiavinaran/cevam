@@ -5,6 +5,8 @@ document.addEventListener('readystatechange', function () {
 });
 
 $(function () {
+    checkLive();
+
     $('#toggle-menu, #toggle-menu-title, #menu-dim').on('click', function () {
         $('body').toggleClass('open-menu');
         $('#vertical-menu-container').addClass('animate__animated animate__faster ' + ($('body').hasClass('open-menu') ? 'animate__fadeInRight' : 'animate__fadeOutRight'));
@@ -40,4 +42,18 @@ function updateHeaderPosition() {
         $('body').removeClass('sticky');
         $('body').css('padding-top', '');
     }
+}
+
+function checkLive() {
+    $.get('?is_live', function (response) {
+        if (response === 'YES') {
+            $('body').addClass('is-live');
+        } else {
+            $('body').removeClass('is-live');
+        }
+
+        setTimeout(() => {
+            checkLive();
+        }, 60000);
+    });
 }

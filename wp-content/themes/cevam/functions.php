@@ -1,5 +1,7 @@
 <?php
 
+define('YOUTUBE_CHANNEL_ID', 'UCJb68TlSDhzzmE1ETDolmfA');
+
 add_action('template_redirect', function () {
     $COOKIE_DURATION = 2678400; // 31 jours
 
@@ -32,6 +34,8 @@ function import_scripts()
 
         wp_register_script('radio-script', get_template_directory_uri() . '/assets/js/radio.js', array('jquery'), '1.0', true);
         wp_enqueue_script('radio-script');
+    } elseif ($template === 'live.php') {
+        wp_enqueue_style('live-style', get_template_directory_uri() . '/assets/css/live.css', array(), '1.0');
     }
 }
 add_action('wp_enqueue_scripts', 'import_scripts', PHP_INT_MAX);
@@ -117,4 +121,79 @@ function get_relative_formatted_time($time)
         $value = $time;
         return $value . ' seconde' . ($value > 1 ? 's' : '');
     }
+}
+
+function is_live()
+{
+    $ch = curl_init('https://www.youtube.com/channel/' . YOUTUBE_CHANNEL_ID . '/live');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    $response = curl_exec($ch);
+    $videoId = '';
+    $status = ''; // OK | LIVE_STREAM_OFFLINE
+
+    if (curl_errno($ch)) {
+        // error: curl_error($ch);
+    } else {
+        $responseLength = strlen($response);
+        $startLink = '<link rel="canonical" href="https://www.youtube.com/watch?v=';
+        $startLinkLength = strlen($startLink);
+        $startStatus = '"playabilityStatus":{"status":"';
+        $startStatusLength = strlen($startStatus);
+
+        for ($i = 0; $i < $responseLength; $i++) {
+            if ($videoId == '') {
+                $isFound = true;
+
+                for ($s = 0; $s < $startLinkLength; $s++) {
+                    if ($response[$i + $s] !== $startLink[$s]) {
+                        $isFound = false;
+                        break;
+                    }
+                }
+
+                if ($isFound) {
+                    $c = $i + $startLinkLength;
+
+                    while ($response[$c] !== '"') {
+                        $videoId .= $response[$c];
+                        $c++;
+                    }
+
+                    $i = $c;
+                }
+            }
+
+            if ($status == '') {
+                $isFound = true;
+
+                for ($s = 0; $s < $startStatusLength; $s++) {
+                    if ($response[$i + $s] !== $startStatus[$s]) {
+                        $isFound = false;
+                        break;
+                    }
+                }
+
+                if ($isFound) {
+                    $c = $i + $startStatusLength;
+
+                    while ($response[$c] !== '"') {
+                        $status .= $response[$c];
+                        $c++;
+                    }
+
+                    $i = $c;
+                }
+            }
+
+            if ($videoId != '' && $status != '') {
+                break;
+            }
+        }
+    }
+
+    curl_close($ch);
+
+    return $videoId != '' && $status === 'OK';
 }
