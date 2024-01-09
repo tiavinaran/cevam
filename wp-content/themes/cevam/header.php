@@ -55,7 +55,7 @@
         ]);
         ?>
         <section id="horizontal-language-switcher" class="language-switcher">
-            <?php pll_the_languages(['dropdown' => 1, 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
+            <?php pll_the_languages(['dropdown' => 'horizontal', 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
         </section>
         <section id="vertical-menu-section">
             <section id="toggle-menu-container">
@@ -76,7 +76,7 @@
                 ]);
                 ?>
                 <section id="vertical-language-switcher" class="language-switcher">
-                    <?php pll_the_languages(['dropdown' => 1, 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
+                    <?php pll_the_languages(['dropdown' => 'vertical', 'display_names_as' => 'slug', 'hide_if_empty' => 0]); ?>
                 </section>
             </section>
         </section>
