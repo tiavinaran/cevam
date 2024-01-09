@@ -238,6 +238,7 @@ body.sticky #main-header {
     left: 0;
     width: 100%;
     background: white;
+    z-index: 1;
 }
 
 body.sticky.is-dark #main-header {
