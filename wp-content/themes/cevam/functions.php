@@ -38,6 +38,17 @@ function import_scripts()
     } elseif ($template === 'live.php') {
         wp_enqueue_style('live-style', get_template_directory_uri() . '/assets/css/live.css', array(), '1.0');
     }
+
+    if ($template === 'contact.php') {
+        wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css', array(), '1.0');
+
+        wp_register_script('contact-script', get_template_directory_uri() . '/assets/js/contact.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('contact-script');
+    } else {
+        wp_dequeue_script('contact-form-7');
+        wp_dequeue_script('wpcf7-recaptcha');
+        wp_dequeue_script('google-recaptcha');
+    }
 }
 add_action('wp_enqueue_scripts', 'import_scripts', PHP_INT_MAX);
 
@@ -46,6 +57,8 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
+
+add_filter('wpcf7_load_css', '__return_false');
 
 function footer_deregister_scripts()
 {

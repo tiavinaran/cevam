@@ -221,6 +221,11 @@ body:not(.loading) #page-loading {
     position: relative;
 }
 
+.grecaptcha-badge {
+    visibility: hidden;
+    z-index: -1;
+}
+
 /* header styles */
 #main-header {
     display: flex;
