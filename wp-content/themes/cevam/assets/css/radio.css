@@ -90,7 +90,7 @@ h1 {
 }
 
 #current-song-play:hover {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.125);
+    background-color: hsla(0, 0%, 100%, 0.0625);
 }
 
 #current-song-play:active {
