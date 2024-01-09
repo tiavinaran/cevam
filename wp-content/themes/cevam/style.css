@@ -47,11 +47,12 @@
 }
 
 :root {
-    --primary-color: #004a80;
-    --secondary-color: #a2c6e0;
-    --tertiary-color: #b0bec8;
+    --primary-color: #123e63;
+    --secondary-color: #b1bdc9;
+    --tertiary-color: #c4d0dc;
     --light-color: #f2f2f2;
     --dark-color: #a7a7a7;
+    --red-color: #f22f11;
     --font-light: 'Montserrat Extra Light', sans-serif;
     --font-regular: 'Montserrat', sans-serif;
     --font-bold: 'Montserrat Extra Bold', sans-serif;
@@ -271,7 +272,7 @@ body.is-live .menu-item a[href*="/live"]::after {
     height: 0.5rem;
     width: 0.5rem;
     border-radius: 100%;
-    background: red;
+    background: var(--red-color);
 }
 
 #horizontal-menu a {
@@ -509,6 +510,7 @@ body:not(.open-menu) #vertical-menu-container:not(.animate__animated) {
 /* footer styles */
 #main-footer .copyrights {
     font-family: var(--font-light);
+    color: var(--secondary-color);
     text-align: center;
     font-size: 75%;
 }
