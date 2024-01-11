@@ -94,10 +94,15 @@ html, body {
 }
 
 body {
+    --header-height: 0px;
     display: flex;
     flex-direction: column;
     font-family: var(--font-regular);
     background-color: white;
+}
+
+body.sticky {
+    padding-top: var(--header-height);
 }
 
 body.is-dark {
@@ -243,6 +248,12 @@ body.sticky #main-header {
 
 body.sticky.is-dark #main-header {
     background: #121212;
+}
+
+#menu-logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #menu-logo a {
@@ -451,9 +462,9 @@ body:not(.open-menu) #vertical-menu-container:not(.animate__animated) {
 
 @media screen and (min-width: 350px) {
     #menu-logo {
-        margin-left: 2rem;
-        margin-right: 3rem;
-    }    
+        flex: unset;
+        margin: 0 2rem 0 1rem;
+    }
 
     .hamburger-lines {
         padding: 0 1.5rem;

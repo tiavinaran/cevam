@@ -35,12 +35,12 @@ $(function () {
 });
 
 function updateHeaderPosition() {
+    $('body').css('--header-height', $('#main-header').outerHeight(true) + 'px');
+
     if ($(window).scrollTop() > 0) {
         $('body').addClass('sticky');
-        $('body').css('padding-top', $('#main-header').outerHeight(true) + 'px');
     } else {
         $('body').removeClass('sticky');
-        $('body').css('padding-top', '');
     }
 }
 
