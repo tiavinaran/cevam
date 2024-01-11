@@ -481,6 +481,10 @@ body:not(.open-menu) #vertical-menu-container:not(.animate__animated) {
         color: var(--tertiary-color);
     }
 
+    #vertical-menu-section {
+        flex: unset;
+    }
+
     #horizontal-menu {
         flex: 3 1 auto;
         display: flex;
