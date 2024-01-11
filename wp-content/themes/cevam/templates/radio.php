@@ -65,7 +65,7 @@ get_header();
 <main id="main-section" data-template="radio">
     <h1>Cevam Radio</h1>
     <section id="current-song">
-        <section id="current-song-cover">
+        <section id="current-song-cover" style="--default-cover-img: url(<?php echo get_template_directory_uri(); ?>/assets/img/cevam-radio.jpg)">
             <img id="current-song-cover-img" src="<?php echo $_SESSION['page_background']; ?>" data-default="<?php echo get_template_directory_uri(); ?>/assets/img/cevam-radio.jpg" alt="album cover" title="<?php echo $song['album'] != '' ? 'Album : ' . $song['album'] : ''; ?>" />
         </section>
         <section id="current-singer">

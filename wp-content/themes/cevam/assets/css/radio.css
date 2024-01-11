@@ -35,35 +35,41 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 7.5vw 0 5vw;
+    padding: 0 30px 0 20px;
+}
+
+#current-song-cover {
+    width: 75px;
+    height: 75px;
+    border-radius: 0.25rem;
+    background-image: var(--default-cover-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 #current-song-cover-img {
-    max-height: 35vh;
-    max-width: 25vw;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 0.75rem;
+    border-radius: 0.25rem;
 }
 
 #current-singer {
     flex: 1;
     width: min-content;
-    margin: 0 5vw 0 2.5vw;
-    font-size: max(1rem, 2.5vw);
+    margin: 0 10px 0 15px;
+    font-size: 0.9rem;
     color: white;
 }
 
 #current-song-title {
-    max-width: 45vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-family: var(--font-bold-italic);
 }
 
 #current-song-artist {
     font-family: var(--font-light);
-    font-size: 90%;
+    font-size: 80%;
 }
 
 #radio-stream {
@@ -75,7 +81,7 @@ h1 {
 }
 
 #current-song-play {
-    padding: 2.5vw;
+    padding: 12.5px;
     border-radius: 100%;
     background-color: hsla(0, 0%, 100%, 0.05);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
@@ -85,8 +91,8 @@ h1 {
 }
 
 #current-song-play > svg {
-    width: 5vw;
-    height: 5vw;
+    width: 25px;
+    height: 25px;
 }
 
 #current-song-play:hover {
@@ -98,11 +104,11 @@ h1 {
 }
 
 #play-button {
-    margin: 0.125vw 0 0.125vw 1vw;
+    margin: 1px 0 1px 7.5px;
 }
 
 #pause-button {
-    margin: 0.125vw 0.5vw;
+    margin: 1px 3px 1px 4px;
 }
 
 #current-song-play.playing #play-button {
@@ -115,8 +121,8 @@ h1 {
 
 #current-song-live {
     position: absolute;
-    left: calc(100% - 0.5vw);
-    bottom: -1vw;
+    left: calc(100% - 1px);
+    bottom: -4px;
     cursor: pointer;
     color: var(--tertiary-color);
 }
@@ -126,12 +132,218 @@ h1 {
 }
 
 #current-song-live > svg {
-    width: 4vw;
-    height: 4vw;
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (min-width: 350px) {
+    #current-song-cover {
+        width: 90px;
+        height: 90px;
+    }
+
+    #current-singer {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 520px) {
+    #current-song-cover {
+        width: 150px;
+        height: 150px;
+    }
+
+    #current-singer {
+        max-width: 175px;
+        margin: 0 30px 0 20px;
+        font-size: 1.2rem;
+    }
+
+    #current-song-title {
+        max-width: 175px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #current-song-play {
+        padding: 15px;
+    }
+
+    #current-song-play > svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    #play-button {
+        margin: 1px 0 1px 5px;
+    }
+
+    #pause-button {
+        margin: 1px 2px 1px 3px;
+    }
+
+    #current-song-live {
+        left: calc(100% - 2px);
+        bottom: -5px;
+    }
+
+    #current-song-live > svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #current-song {
+        width: 650px;
+        padding: 0;
+        margin: auto;
+    }
+
+    #current-song-cover {
+        width: 200px;
+        height: 200px;
+        border-radius: 0.5rem;
+    }
+
+    #current-song-cover-img {
+        border-radius: 0.5rem;
+    }
+
+    #current-singer {
+        flex: unset;
+        max-width: unset;
+        margin: 0 50px 0 25px;
+        font-size: 1.5rem;
+    }
+
+    #current-song-artist {
+        font-size: 75%;
+    }
+
+    #current-song-title {
+        max-width: 275px;
+    }
+
+    #current-song-play {
+        padding: 20px;
+    }
+
+    #current-song-play > svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    #play-button {
+        margin: 2px 0 2px 10px;
+    }
+
+    #pause-button {
+        margin: 2px 4px 2px 6px;
+    }
+
+    #current-song-live {
+        left: calc(100% - 5px);
+        bottom: -10px;
+    }
+
+    #current-song-live > svg {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    #current-song {
+        width: 775px;
+    }
+
+    #current-song-cover {
+        width: 250px;
+        height: 250px;
+        border-radius: 0.75rem;
+    }
+
+    #current-song-cover-img {
+        border-radius: 0.75rem;
+    }
+
     #current-singer {
-        flex: unset;
+        margin: 0 75px 0 37.5px;
+        font-size: 1.75rem;
+    }
+
+    #current-song-artist {
+        font-size: 75%;
+    }
+
+    #current-song-title {
+        max-width: 300px;
+    }
+
+    #current-song-play {
+        padding: 25px;
+    }
+
+    #current-song-play > svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    #play-button {
+        margin: 2.5px 0 2.5px 12.5px;
+    }
+
+    #pause-button {
+        margin: 2.5px 6px 2.5px 6.5px;
+    }
+
+    #current-song-live {
+        left: calc(100% - 6.25px);
+        bottom: -12.5px;
+    }
+
+    #current-song-live > svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #current-song {
+        width: 875px;
+    }
+
+    #current-song-cover {
+        width: 275px;
+        height: 275px;
+    }
+
+    #current-song-title {
+        max-width: 375px;
+    }
+
+    #current-singer {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #current-song {
+        width: 1024px;
+    }
+
+    #current-song-cover {
+        width: 300px;
+        height: 300px;
+    }
+
+    #current-song-title {
+        max-width: 475px;
+    }
+
+    #current-singer {
+        font-size: 2.5rem;
     }
 }
