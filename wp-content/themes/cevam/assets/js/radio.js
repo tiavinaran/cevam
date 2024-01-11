@@ -117,6 +117,10 @@ function updateSongData(data = null) {
     $('#current-song-title').attr('title', data.title);
     $('#current-song-artist').text(data.artist);
     $('body').css('--image-background', 'url(' + (data.cover || $('#current-song-cover-img').data('default')) + ')');
-    $('#current-song-cover-img').attr('src', data.cover || $('#current-song-cover-img').data('default'));
     $('#current-song-cover-img').attr('title', data.album != '' ? 'Album : ' + data.album : '');
+    $('#current-song-cover-img').attr('src', $('#current-song-cover-img').data('default'));
+
+    if (data.cover) {
+        $('#current-song-cover-img').attr('src', data.cover);
+    }
 }
