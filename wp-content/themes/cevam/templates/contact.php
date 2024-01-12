@@ -12,6 +12,26 @@ get_header();
       <a id="map" href="https://www.google.com/maps/?cid=633700803472239723" target="_blank">
         <img src="<?php echo get_template_directory_uri() . '/assets/img/cevam-map.jpg'; ?>" alt="map" title="map" />
       </a>
+      <section id="contact-info-list">
+        <?php
+          $infos = [
+            'map' => ['text' => 'II I 50 Ter Ankadivato, Tanà 101', 'link' => 'https://www.google.com/maps/?cid=633700803472239723'],
+            'mail' => ['text' => 'salomon.cevam@moov.mg', 'link' => 'mailto:salomon.cevam@moov.mg'],
+            'phone' => ['text' => '+261 20 22 292 94', 'link' => 'tel:+261202229294']
+          ];
+
+          foreach ($infos as $name => $info) {
+            if (!is_array($info) || $info['text'] == '') {
+              continue;
+            }
+
+            echo '<a class="contact-info"' . ($info['link'] != '' ? ' href="' . $info['link'] . '" target="_blank"' : '') . '>';
+            require __DIR__ . '/../assets/img/' . $name . '.svg';
+            echo '<span>' . $info['text'] . '</span>';
+            echo '</a>';
+          }
+        ?>
+      </section>
     </section>
     <section id="contact-form">
       <section id="contact-form-header">

@@ -20,6 +20,28 @@
     border-radius: 2rem;
 }
 
+#contact-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 0.5rem;
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info svg {
+    width: 20px;
+    height: 20px;
+}
+
 #contact-form {
     padding-bottom: 2rem;
 }
