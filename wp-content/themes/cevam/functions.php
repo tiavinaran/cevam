@@ -30,15 +30,6 @@ function import_scripts()
 
     $template = basename(get_page_template());
 
-    if ($template === 'radio.php') {
-        wp_enqueue_style('radio-style', get_template_directory_uri() . '/assets/css/radio.css', array(), '1.0');
-
-        wp_register_script('radio-script', get_template_directory_uri() . '/assets/js/radio.js', array('jquery'), '1.0', true);
-        wp_enqueue_script('radio-script');
-    } elseif ($template === 'live.php') {
-        wp_enqueue_style('live-style', get_template_directory_uri() . '/assets/css/live.css', array(), '1.0');
-    }
-
     if ($template === 'contact.php') {
         wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css', array(), '1.0');
 
@@ -48,6 +39,20 @@ function import_scripts()
         wp_dequeue_script('contact-form-7');
         wp_dequeue_script('wpcf7-recaptcha');
         wp_dequeue_script('google-recaptcha');
+
+        if ($template === 'radio.php') {
+            wp_enqueue_style('radio-style', get_template_directory_uri() . '/assets/css/radio.css', array(), '1.0');
+
+            wp_register_script('radio-script', get_template_directory_uri() . '/assets/js/radio.js', array('jquery'), '1.0', true);
+            wp_enqueue_script('radio-script');
+        } elseif ($template === 'live.php') {
+            wp_enqueue_style('live-style', get_template_directory_uri() . '/assets/css/live.css', array(), '1.0');
+        } elseif ($template === 'about.php') {
+            wp_enqueue_style('about-style', get_template_directory_uri() . '/assets/css/about.css', array(), '1.0');
+
+            wp_register_script('about-script', get_template_directory_uri() . '/assets/js/about.js', array('jquery'), '1.0', true);
+            wp_enqueue_script('about-script');
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'import_scripts', PHP_INT_MAX);
