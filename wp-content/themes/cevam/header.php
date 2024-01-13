@@ -30,7 +30,7 @@
     $isDarkPage = $template === 'radio.php';
 
     if ($template === 'podcast.php') {
-        $_SESSION['page_background'] = get_template_directory_uri() . '/assets/img/gradient-purple.jpg';
+        $_SESSION['page_background'] = get_template_directory_uri() . '/assets/img/gradient-blue.jpg';
     }
 ?>
 
