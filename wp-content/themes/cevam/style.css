@@ -425,7 +425,7 @@ body.open-menu #menu-dim {
     height: 100vh;
     width: calc(100vw + 100%);
     background: #000000bf;
-    z-index: 1;
+    z-index: 2;
 }
 
 #vertical-menu-container {
@@ -439,7 +439,7 @@ body.open-menu #menu-dim {
     width: 100vw;
     background: white;
     box-shadow: 0 1rem 1rem 1px #0000001a;
-    z-index: 1;
+    z-index: 2;
 }
 
 body.is-dark #vertical-menu-container {
