@@ -52,6 +52,11 @@ function import_scripts()
 
             wp_register_script('about-script', get_template_directory_uri() . '/assets/js/about.js', array('jquery'), '1.0', true);
             wp_enqueue_script('about-script');
+        } elseif ($template === 'podcast.php') {
+            wp_enqueue_style('podcast-style', get_template_directory_uri() . '/assets/css/podcast.css', array(), '1.0');
+
+            wp_register_script('podcast-script', get_template_directory_uri() . '/assets/js/podcast.js', array('jquery'), '1.0', true);
+            wp_enqueue_script('podcast-script');
         }
     }
 }
@@ -216,3 +221,38 @@ function is_live()
 
     return $videoId != '' && $status === 'OK';
 }
+
+function disable_ssp_generator_tag()
+{
+    return false;
+}
+add_filter('ssp_show_generator_tag', 'disable_ssp_generator_tag');
+
+function update_podcast_player_dynamic_css($css)
+{
+    return preg_replace('/\.modern:not\(\.wide-player\) \.ppjs__audio-time-rail\s*\{[^}]*\}/', '{}', $css);
+}
+add_filter('podcast_player_dynamic_css', 'update_podcast_player_dynamic_css');
+
+function custom_text($translated_text, $text, $domain)
+{
+    if ($domain === 'podcast-player') {
+        $translations = [
+            'Search Episodes' => 'Rechercher ...',
+            'Load More' => 'Voir plus'
+        ];
+
+        return $translations[$text] ?? $translated_text;
+    } elseif ($domain === 'seriously-simple-podcasting') {
+        $translations = [
+            'Share' => 'Partager',
+            'Link' => 'Lien'
+        ];
+
+        return $translations[$text] ?? $translated_text;
+    }
+
+    return $translated_text;
+}
+
+add_filter('gettext', 'custom_text', 20, 3);

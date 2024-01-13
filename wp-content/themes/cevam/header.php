@@ -28,6 +28,10 @@
 <?php
     $template = basename(get_page_template());
     $isDarkPage = $template === 'radio.php';
+
+    if ($template === 'podcast.php') {
+        $_SESSION['page_background'] = get_template_directory_uri() . '/assets/img/gradient-purple.jpg';
+    }
 ?>
 
 <body class="loading<?php echo $isDarkPage ? ' is-dark' : ''; ?>"<?php echo isset($_SESSION['page_background']) && $_SESSION['page_background'] != '' ? ' style="--image-background: url(' . $_SESSION['page_background'] . ');"' : ''; ?>>

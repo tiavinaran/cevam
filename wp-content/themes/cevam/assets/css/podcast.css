@@ -1,0 +1,165 @@
+body {
+    background-image: var(--image-background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#main-header {
+    background: white;
+}
+
+#main-section {
+    align-items: center;
+    padding: 1.5rem;
+}
+
+#main-footer .copyrights {
+    color: var(--light-color);
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+h1 svg {
+    width: 48px;
+    height: 48px;
+}
+
+.pp-podcast {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 0.5rem !important;
+}
+
+#main-section .pp-podcast[id^=pp-podcast-], #main-section .pp-podcast[id^=pp-podcast-] button, #main-section .pp-podcast[id^=pp-podcast-] input, #main-section .pp-podcast[id^=pp-podcast-] .ppjs__audio-timer, #main-section .pp-podcast[id^=pp-podcast-] .ppjs__time-float, #main-section .pp-modal-window, #main-section .pp-modal-window button, #main-section .pp-modal-window input, #main-section .pp-modal-window .ppjs__audio-timer, #main-section .pp-modal-window .ppjs__time-float {
+    font-family: var(--font-regular) !important;
+}
+
+#main-section .ppjs__podcast-title {
+    font-family: var(--font-bold);
+    font-size: 90%;
+}
+
+#main-section .ppjs__episode-title {
+    order: 1;
+    font-weight: normal;
+    font-size: 110%;
+}
+
+#main-section .ppjs__img-wrapper img {
+    border-radius: 0.5rem;
+}
+
+#main-section .pp-podcast.playerview {
+    border-bottom-width: 1px;
+}
+
+@media only screen and (max-width: 500px) {
+    #main-section .ppjs__img-wrapper img {
+        border-radius: 0.35rem;
+    }
+
+    #main-section .ppjs__audio-controls {
+        padding-bottom: 0;
+    }
+
+    #main-section .ppjs__control_btns {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
+
+#main-section .ppjs__controls input[type='range'] {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+#main-section .ppjs__controls input[type='range']::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, var(--pp-accent-color) var(--buffered-width, 0%), rgba(0, 0, 0, 0.1) var(--buffered-width, 0%)) !important;
+}
+
+#main-section .ppjs__controls input[type='range']::-moz-range-track {
+    background: linear-gradient(to right, var(--pp-accent-color) var(--buffered-width, 0%), rgba(0, 0, 0, 0.1) var(--buffered-width, 0%)) !important;
+}
+
+#main-section .ppjs__controls input[type='range']::-webkit-slider-thumb {
+    margin-top: -3.5px;
+}
+
+#main-section .ppjs__controls input[type='range']::-moz-range-thumb {
+    margin-top: -3.5px;
+}
+
+#main-section .ppjs__controls .ppjs__audio-time-rail {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#main-section .episode-list__search {
+    margin: 1rem 0 !important;
+    padding: 0 !important;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+}
+
+#main-section .episode-list__search-icon {
+    left: 5px;
+}
+
+.episode-list__entry[style*="display: none;"] ~ .episode-list__search-results:empty::after {
+    content: var(--no-result-text);
+    position: absolute;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+}
+
+#main-section .modern.wide-player .pod-entry:nth-of-type(2n):not(.activeEpisode) {
+    background: none;
+}
+
+#main-section .pod-entry:hover .pod-entry__mplay, #main-section .pod-entry.activeEpisode {
+    color: var(--pp-accent-color) !important;
+}
+
+#main-section .episode-list__load-more span {
+    font-weight: normal;
+    font-family: var(--font-bold) !important;
+    font-size: 90%;
+}
+
+#main-section .episode-list__load-more:hover span {
+    color: var(--pp-accent-color) !important;
+}
+
+#main-section .ppjs__list-reveal {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 520px) {
+    #main-section {
+        padding: 2rem;
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+    }
+
+    h1 svg {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .pp-podcast {
+        max-width: 650px;
+    }
+}
