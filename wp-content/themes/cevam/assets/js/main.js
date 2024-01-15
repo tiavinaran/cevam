@@ -23,6 +23,14 @@ $(function () {
         }
     });
 
+    $('#horizontal-menu > .menu-item').hover(function () {
+        $('#main-header').css('--sub-menu-height', ($(this).children('.sub-menu').outerHeight(true) || 0) + 'px');
+    }, function () {
+        if ($('#horizontal-menu > .menu-item:hover').length === 0) {
+            $('#main-header').css('--sub-menu-height', '0px');
+        }
+    });
+
     window.onresize = updateHeaderPosition;
     window.addEventListener('scroll', updateHeaderPosition);
     updateHeaderPosition();
