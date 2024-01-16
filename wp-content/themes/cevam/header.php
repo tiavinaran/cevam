@@ -34,10 +34,12 @@
         $_SESSION['page_background'] = get_template_directory_uri() . '/assets/img/gradient-blue.jpg';
     }
 
-    $isLive = isset($_SESSION['is_live']) ? $_SESSION['is_live'] : is_live();
+    if (!isset($_SESSION['is_live'])) {
+        $_SESSION['is_live'] = is_live();
+    }
 ?>
 
-<body class="loading<?php echo ($isDarkPage ? ' is-dark' : '') . ($isLive ? ' is-live' : ''); ?>"<?php echo isset($_SESSION['page_background']) && $_SESSION['page_background'] != '' ? ' style="--image-background: url(' . $_SESSION['page_background'] . ');"' : ''; ?>>
+<body class="loading<?php echo ($isDarkPage ? ' is-dark' : '') . ($_SESSION['is_live'] ? ' is-live' : ''); ?>"<?php echo isset($_SESSION['page_background']) && $_SESSION['page_background'] != '' ? ' style="--image-background: url(' . $_SESSION['page_background'] . ');"' : ''; ?>>
     <section id="page-loading">
         <div>
             <div class="lds-ring">

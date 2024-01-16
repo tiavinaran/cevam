@@ -23,3 +23,24 @@ h1 {
     height: 100%;
     border: 0;
 }
+
+body.is-live #no-live {
+    display: none;
+}
+
+#no-live {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--very-dark-color);
+    color: var(--light-color);
+    font-family: var(--font-bold);
+    font-size: 1.25rem;
+}
