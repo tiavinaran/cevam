@@ -40,7 +40,14 @@ function import_scripts()
         wp_dequeue_script('wpcf7-recaptcha');
         wp_dequeue_script('google-recaptcha');
 
-        if ($template === 'radio.php') {
+        if ($template === 'home.php') {
+            wp_enqueue_style('swiper-style', get_template_directory_uri() . '/lib/swiper/11.0.5/swiper.min.css', array(), '11.0.5');
+            wp_enqueue_style('home-style', get_template_directory_uri() . '/assets/css/home.css', array(), '1.0');
+
+            wp_register_script('swiper-script', get_template_directory_uri() . '/lib/swiper/11.0.5/swiper.min.js', array(), '11.0.5');
+            wp_register_script('home-script', get_template_directory_uri() . '/assets/js/home.js', array('jquery', 'swiper-script'), '1.0', true);
+            wp_enqueue_script('home-script');
+        } elseif ($template === 'radio.php') {
             wp_enqueue_style('radio-style', get_template_directory_uri() . '/assets/css/radio.css', array(), '1.0');
 
             wp_register_script('radio-script', get_template_directory_uri() . '/assets/js/radio.js', array('jquery'), '1.0', true);

@@ -688,9 +688,76 @@ body .castos-player .player-panel .player-panel-row {
 }
 
 /* footer styles */
+#main-footer.is-large {
+    margin-top: 3rem;
+    padding: 2rem 1rem 0;
+    background-color: var(--primary-color);
+    background-image: var(--footer-img);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
 #main-footer .copyrights {
     font-family: var(--font-light);
     color: var(--secondary-color);
     text-align: center;
     font-size: 75%;
+}
+
+#main-footer.is-large .copyrights {
+    margin-top: 1.5rem;
+}
+
+#footer-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+#footer-address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.125rem;
+}
+
+#footer-address > strong {
+    margin-bottom: 0.125rem;
+    font-weight: normal;
+    font-family: var(--font-bold);
+    letter-spacing: 0.5px;
+}
+
+#footer-social-links-container {
+    text-align: center;
+}
+
+#footer-social-links-container > strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: normal;
+    font-family: var(--font-bold);
+    font-size: 95%;
+    letter-spacing: 0.5px;
+}
+
+#footer-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.footer-social-link img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert();
 }

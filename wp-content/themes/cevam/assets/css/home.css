@@ -1,0 +1,332 @@
+#church-caroussel {
+    height: calc(100vh - var(--header-height));
+    z-index: 0;
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-pagination-bottom: 0.75rem;
+    background-color: var(--very-dark-color);
+}
+
+#church-caroussel .swiper-slide > .swiper-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#church-caroussel .swiper-lazy-preloader {
+    top: unset;
+    left: unset;
+    bottom: 1rem;
+    right: 1rem;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+#church-caroussel h1 {
+    position: absolute;
+    bottom: calc(2 * var(--header-height) / 3);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+    color: white;
+    z-index: 1;
+}
+
+#church-caroussel h1 > span {
+    font-size: 1.75rem;
+}
+
+.home-section {
+    margin: 2rem 2rem 1rem;
+}
+
+.home-section-title {
+    text-align: center;
+}
+
+#about-section {
+    text-align: center;
+}
+
+#about-section-content {
+    margin-bottom: 0;
+}
+
+#about-section-content a {
+    font-family: var(--font-bold);
+}
+
+#event-caroussel {
+    margin-top: 1.5rem;
+    margin-right: -2rem;
+    margin-left: -2rem;
+    --swiper-navigation-sides-offset: 0.5rem;
+    --swiper-navigation-color: var(--secondary-color);
+    --swiper-navigation-size: 26px;
+    z-index: 0;
+}
+
+#event-caroussel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3rem;
+    background: linear-gradient(to right, white, transparent);
+    z-index: 2;
+}
+
+#event-caroussel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3rem;
+    background: linear-gradient(to left, white, transparent);
+    z-index: 2;
+}
+
+#event-caroussel .swiper-wrapper {
+    padding-left: 4rem;
+}
+
+#event-caroussel .swiper-slide {
+    width: 250px;
+    height: 300px;
+    background-image: var(--event-background);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.75rem;
+    color: white;
+    overflow: hidden;
+}
+
+#event-caroussel .swiper-slide:empty {
+    width: 6rem;
+    background: none;
+}
+
+#event-caroussel .swiper-button-next, #event-caroussel .swiper-button-prev {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border-radius: 100%;
+}
+
+#event-caroussel .swiper-button-next:hover, #event-caroussel .swiper-button-prev:hover {
+    --swiper-navigation-color: var(--primary-color);
+}
+
+#event-caroussel .swiper-button-next.swiper-button-lock, #event-caroussel .swiper-button-prev.swiper-button-lock {
+    display: initial;
+}
+
+.event-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: background-color 1s;
+}
+
+.event-details:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.event-details.is-coming::after {
+    content: var(--is-coming-text);
+    position: absolute;
+    top: 0.3rem;
+    right: 0.275rem;
+    display: inline-block;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem 0.4rem 0.25rem 0.25rem;
+    text-transform: uppercase;
+    background-color: var(--red-color);
+    font-family: var(--font-bold);
+    font-size: 0.7rem;
+}
+
+.event-details > strong {
+    font-weight: normal;
+    font-family: var(--font-light);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-details:hover > strong {
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.event-details > h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-details > div {
+    transition: flex-grow 0.7s;
+}
+
+.event-details:not(:hover) > div {
+    height: 0;
+    opacity: 0;
+}
+
+.event-details:hover > div {
+    flex: 1;
+    margin-top: 1rem;
+}
+
+.event-details > div > p {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-details > div > span {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--font-bold);
+    font-size: 90%;
+    color: var(--secondary-color);
+}
+
+.event-details > div > span:hover {
+    text-decoration: underline;
+}
+
+#rebroadcast-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.rebroadcast-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--very-dark-color);
+    background-image: var(--video-background);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.rebroadcast-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: background-color 0.25s;
+}
+
+.rebroadcast-video:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.rebroadcast-video img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: brightness(0) invert();
+    width: 48px;
+    height: 48px;
+}
+
+.rebroadcast-video:not(:hover) img {
+    display: none;
+}
+
+@media screen and (min-width: 520px) {
+    #rebroadcast-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #church-caroussel h1 > span {
+        font-size: 2rem;
+    }
+
+    #church-caroussel h1 > small {
+        font-size: 1rem;
+    }
+
+    #event-caroussel {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home-section {
+        width: calc(1024px - 4rem);
+        margin: 3rem auto 2rem;
+    }
+
+    #rebroadcast-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #church-caroussel h1 > span {
+        font-size: 2.5rem;
+    }
+
+    #church-caroussel h1 > small {
+        font-size: 1.25rem;
+    }
+
+    #about-section-title {
+        font-size: 1.65rem;
+    }
+
+    #about-section-content {
+        font-size: 1.15rem;
+    }
+
+    #event-section {
+        width: calc(1200px - 4rem);
+    }
+
+    #rebroadcast-section {
+        width: calc(1200px - 4rem);
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #church-caroussel h1 > span {
+        font-size: 3rem;
+    }
+
+    #church-caroussel h1 > small {
+        font-size: 1.5rem;
+    }
+}
