@@ -1,28 +1,25 @@
 <?php
 $isLargeFooter = basename(get_page_template()) === 'home.php';
+$address = trim(get_theme_mod('address'));
+$phone = trim(get_theme_mod('phone'));
 ?>
         <footer id="main-footer"<?php echo $isLargeFooter ? ' class="is-large" style="--footer-img: url(' . get_template_directory_uri() . '/assets/img/praising-blue.jpg)"' : ''; ?>>
             <?php if ($isLargeFooter) { ?>
                 <section id="footer-contacts">
                     <section id="footer-address">
                         <strong>Visitez-nous</strong>
-                        <small>II I 50 Ter Ankadivato, Tanà 101</small>
-                        <small>+261 20 22 292 94</small>
+                        <?php echo $address != '' ? '<small>' . $address . '</small>' : ''; ?>
+                        <?php echo $phone != '' ? '<small>' . $phone . '</small>' : ''; ?>
                     </section>
                     <section id="footer-social-links-container">
                         <strong>Suivez-nous</strong>
                         <section id="footer-social-links">
                             <?php
-                                $links = [
-                                    'facebook' => 'https://www.facebook.com/cevamchurch',
-                                    'youtube' => 'https://www.youtube.com/@cevamnetwork',
-                                    'tiktok' => 'https://www.tiktok.com/@cevamnetwork',
-                                    'instagram' => 'https://www.instagram.com/cevamchurch',
-                                    'twitter' => 'https://twitter.com/cevamnetwork',
-                                    'linkedin' => 'https://www.linkedin.com/in/cevam-church-b7a7a71b2'
-                                ];
-    
-                                foreach ($links as $name => $link) {
+                                $socialNetworks = ['facebook', 'youtube', 'tiktok', 'instagram', 'twitter', 'linkedin'];
+
+                                foreach ($socialNetworks as $name) {
+                                    $link = trim(get_theme_mod($name));
+
                                     if ($link == '') {
                                         continue;
                                     }
@@ -38,7 +35,7 @@ $isLargeFooter = basename(get_page_template()) === 'home.php';
                     </section>
                 </section>
             <?php } ?>
-            <p class="copyrights">&copy; CEVAM Church 2024 - Tous droits réservés</p>
+            <p class="copyrights"><?php echo trim(get_theme_mod('footer-text')); ?></p>
         </footer>
         <?php wp_footer(); ?>
     </body>

@@ -89,6 +89,156 @@ function initTheme()
 }
 add_action('init', 'initTheme');
 
+function custom_theme_data_config($wp)
+{
+    $wp->add_panel('contacts-panel', [
+        'title' => 'Coordonnées & Réseaux sociaux'
+    ]);
+
+    // contacts section
+    $wp->add_section('contacts-section', [
+        'title' => 'Coordonnées',
+        'panel' => 'contacts-panel'
+    ]);
+
+    $wp->add_setting('address', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('address-control', [
+        'label' => 'Adresse',
+        'type' => 'text',
+        'section' => 'contacts-section',
+        'settings' => 'address'
+    ]);
+
+    $wp->add_setting('address-map', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('address-map-control', [
+        'label' => 'Lien adresse (Ex: google map)',
+        'type' => 'text',
+        'section' => 'contacts-section',
+        'settings' => 'address-map'
+    ]);
+
+    $wp->add_setting('email', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('email-control', [
+        'label' => 'Email',
+        'type' => 'text',
+        'section' => 'contacts-section',
+        'settings' => 'email'
+    ]);
+
+    $wp->add_setting('phone', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('phone-control', [
+        'label' => 'Téléphone',
+        'type' => 'text',
+        'section' => 'contacts-section',
+        'settings' => 'phone'
+    ]);
+
+    // social networks section
+    $wp->add_section('contacts-social-networks-section', [
+        'title' => 'Réseaux sociaux',
+        'panel' => 'contacts-panel'
+    ]);
+
+    $wp->add_setting('facebook', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('facebook-control', [
+        'label' => 'Facebook',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'facebook'
+    ]);
+
+    $wp->add_setting('youtube', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('youtube-control', [
+        'label' => 'Youtube',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'youtube'
+    ]);
+
+    $wp->add_setting('tiktok', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('tiktok-control', [
+        'label' => 'Tiktok',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'tiktok'
+    ]);
+
+    $wp->add_setting('instagram', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('instagram-control', [
+        'label' => 'Instagram',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'instagram'
+    ]);
+
+    $wp->add_setting('twitter', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('twitter-control', [
+        'label' => 'Twitter',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'twitter'
+    ]);
+
+    $wp->add_setting('linkedin', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('linkedin-control', [
+        'label' => 'Linkedin',
+        'type' => 'url',
+        'section' => 'contacts-social-networks-section',
+        'settings' => 'linkedin'
+    ]);
+
+    $wp->add_panel('footer-panel', [
+        'title' => 'Pied de page'
+    ]);
+
+    // footer section
+    $wp->add_section('footer-section', [
+        'title' => 'Pied de page'
+    ]);
+
+    $wp->add_setting('footer-text', [
+        'default' => ''
+    ]);
+
+    $wp->add_control('footer-text-control', [
+        'label' => 'Texte copyright',
+        'type' => 'text',
+        'section' => 'footer-section',
+        'settings' => 'footer-text'
+    ]);
+}
+add_action('customize_register', 'custom_theme_data_config');
+
 function get_attachment_url_by_slug($slug)
 {
     $args = [
